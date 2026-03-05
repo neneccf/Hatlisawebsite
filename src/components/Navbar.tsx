@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -35,38 +36,43 @@ export default function Navbar() {
     } else {
       document.body.style.overflow = "";
     }
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [mobileOpen]);
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "navbar-scrolled py-3"
-          : "bg-transparent py-5"
+        scrolled ? "navbar-scrolled py-2" : "bg-transparent py-4"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-teal to-teal-dark flex items-center justify-center text-white font-heading font-bold text-lg transition-transform group-hover:scale-105">
-            H
-          </div>
-          <span className="text-white font-heading font-bold text-xl tracking-tight">
-            Hatlisa<span className="text-teal-light font-normal"> Group</span>
+        <Link href="/" className="flex items-center gap-2.5 group shrink-0">
+          <Image
+            src="/logo.png"
+            alt="Hatlisa Group"
+            width={36}
+            height={36}
+            className="transition-transform group-hover:scale-105"
+            priority
+          />
+          <span className="text-white font-heading font-bold text-lg tracking-tight hidden sm:inline">
+            Hatlisa<span className="font-normal opacity-70"> Group</span>
           </span>
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden lg:flex items-center gap-1">
+        <div className="hidden lg:flex items-center gap-0.5">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+              className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                 pathname === link.href
-                  ? "text-teal-light bg-white/10"
-                  : "text-white/80 hover:text-white hover:bg-white/5"
+                  ? "text-white bg-white/10"
+                  : "text-white/70 hover:text-white hover:bg-white/5"
               }`}
             >
               {link.label}
@@ -74,7 +80,7 @@ export default function Navbar() {
           ))}
           <Link
             href="/contact"
-            className="ml-3 btn-gradient px-5 py-2.5 rounded-lg text-white text-sm font-semibold"
+            className="ml-3 btn-gradient px-5 py-2 rounded-lg text-white text-sm font-semibold"
           >
             Get Started
           </Link>
@@ -135,7 +141,9 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   className={`text-2xl font-heading font-medium transition-colors ${
-                    pathname === link.href ? "text-teal" : "text-white/80 hover:text-white"
+                    pathname === link.href
+                      ? "text-white"
+                      : "text-white/60 hover:text-white"
                   }`}
                 >
                   {link.label}

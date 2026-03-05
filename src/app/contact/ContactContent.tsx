@@ -24,12 +24,12 @@ export default function ContactContent() {
       <section className="hero-gradient pt-40 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-teal-light text-sm font-medium mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-sm font-medium mb-6">
               Get In Touch
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-6">
               Contact{" "}
-              <span className="gradient-text">Hatlisa Group</span>
+              <span className="text-gold-light">Hatlisa Group</span>
             </h1>
             <p className="text-xl text-white/70 leading-relaxed">
               Ready to discuss your operational needs? We&apos;re here to help.

@@ -60,12 +60,12 @@ export default function HowWeWorkContent() {
       <section className="hero-gradient pt-40 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-teal-light text-sm font-medium mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-sm font-medium mb-6">
               Our Process
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-6">
               How Clients{" "}
-              <span className="gradient-text">Work With Us</span>
+              <span className="text-gold-light">Work With Us</span>
             </h1>
             <p className="text-xl text-white/70 leading-relaxed">
               We execute precisely what is required — without unnecessary
@@ -151,7 +151,7 @@ export default function HowWeWorkContent() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
             <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-6">
-              The <span className="gradient-text">Key Difference</span>
+              The <span className="text-gold-light">Key Difference</span>
             </h2>
             <p className="text-white/70 text-lg leading-relaxed mb-4">
               Some clients engage us for procurement support only. Others

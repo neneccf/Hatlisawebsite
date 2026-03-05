@@ -66,12 +66,12 @@ export default function AboutContent() {
       <section className="hero-gradient pt-40 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-teal-light text-sm font-medium mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-sm font-medium mb-6">
               About Us
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-6">
               Built On{" "}
-              <span className="gradient-text">Experience</span>
+              <span className="text-gold-light">Experience</span>
             </h1>
             <p className="text-xl text-white/70 leading-relaxed">
               The firm is new. The operational experience behind it is not.
@@ -86,7 +86,7 @@ export default function AboutContent() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
               <h2 className="text-3xl sm:text-4xl font-heading font-bold text-navy mb-6">
-                Our <span className="gradient-text">Foundation</span>
+                Our <span className="text-gold-light">Foundation</span>
               </h2>
               <p className="text-slate text-lg leading-relaxed mb-6">
                 Hatlisa Group is founded on over 15 years of hands-on
@@ -170,7 +170,7 @@ export default function AboutContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-heading font-bold text-navy mb-4">
-              Our <span className="gradient-text">Values</span>
+              Our <span className="text-gold-light">Values</span>
             </h2>
             <div className="section-divider mx-auto" />
           </AnimatedSection>
@@ -201,7 +201,7 @@ export default function AboutContent() {
           <AnimatedSection>
             <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-6">
               Ready to{" "}
-              <span className="gradient-text">Work Together</span>?
+              <span className="text-gold-light">Work Together</span>?
             </h2>
             <p className="text-white/70 text-lg leading-relaxed mb-8">
               Leverage our 15+ years of operational experience for your next
