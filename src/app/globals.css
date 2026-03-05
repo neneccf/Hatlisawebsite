@@ -1,26 +1,164 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-navy: #001B48;
+  --color-navy-light: #002060;
+  --color-navy-dark: #001030;
+  --color-charcoal: #1A1A2E;
+  --color-charcoal-light: #2D2D44;
+  --color-teal: #00B4D8;
+  --color-teal-dark: #008DA6;
+  --color-teal-light: #48CAE4;
+  --color-gold: #C9A84C;
+  --color-gold-light: #D4B96A;
+  --color-slate: #64748B;
+  --color-slate-light: #94A3B8;
+  --font-heading: var(--font-montserrat);
+  --font-body: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
+  color: #1A1A2E;
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), system-ui, sans-serif;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #00B4D8 0%, #C9A84C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animated gradient background */
+.hero-gradient {
+  background: linear-gradient(135deg, #001B48 0%, #001030 40%, #0A1628 60%, #001B48 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating particles effect */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 180, 216, 0.15);
+  animation: float 20s infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  50% { transform: translateY(-200px) translateX(100px); }
+}
+
+/* Glow effect */
+.glow {
+  box-shadow: 0 0 40px rgba(0, 180, 216, 0.15);
+}
+
+/* Card hover lift */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 27, 72, 0.12);
+}
+
+/* Service icon container */
+.service-icon {
+  background: linear-gradient(135deg, rgba(0, 180, 216, 0.1) 0%, rgba(201, 168, 76, 0.1) 100%);
+  transition: all 0.3s ease;
+}
+
+.service-icon:hover {
+  background: linear-gradient(135deg, rgba(0, 180, 216, 0.2) 0%, rgba(201, 168, 76, 0.2) 100%);
+}
+
+/* Interconnected diagram lines */
+.diagram-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLine 2s ease forwards;
+}
+
+@keyframes drawLine {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Navbar scroll effect */
+.navbar-scrolled {
+  background: rgba(0, 27, 72, 0.95);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Button gradient */
+.btn-gradient {
+  background: linear-gradient(135deg, #00B4D8 0%, #008DA6 100%);
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(135deg, #48CAE4 0%, #00B4D8 100%);
+  box-shadow: 0 8px 30px rgba(0, 180, 216, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  border: 2px solid #00B4D8;
+  color: #00B4D8;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: #00B4D8;
+  color: #ffffff;
+  box-shadow: 0 8px 30px rgba(0, 180, 216, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Section divider */
+.section-divider {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #00B4D8, #C9A84C);
+  border-radius: 2px;
+}
+
+/* Focus styles for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #00B4D8;
+  outline-offset: 2px;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(0, 180, 216, 0.3);
+  color: #001B48;
 }
