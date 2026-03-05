@@ -31,7 +31,7 @@ export default function WhyContent() {
     <>
       {/* Hero */}
       <section className="hero-gradient pt-40 pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="section-container">
           <AnimatedSection className="max-w-3xl">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-sm font-medium mb-6">
               Our Approach
@@ -50,7 +50,7 @@ export default function WhyContent() {
 
       {/* Interconnected diagram */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="section-container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
               <h2 className="text-3xl sm:text-4xl font-heading font-bold text-navy mb-6">
@@ -139,7 +139,7 @@ export default function WhyContent() {
 
       {/* Connections Detail */}
       <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="section-container">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-heading font-bold text-navy mb-4">
               How Functions <span className="text-gold-light">Interconnect</span>
@@ -176,7 +176,7 @@ export default function WhyContent() {
 
       {/* CTA */}
       <section className="py-24 bg-navy text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="section-container max-w-4xl text-center">
           <AnimatedSection>
             <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-6">
               Experience the{" "}

@@ -58,7 +58,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-32 pb-20">
+        <div className="section-container relative z-10 pt-32 pb-20">
           <div className="max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -160,7 +160,7 @@ export default function Home() {
 
       {/* Services Overview */}
       <section className="py-24 lg:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="section-container">
           <AnimatedSection className="text-center mb-16">
             <span className="text-teal-dark font-semibold text-sm uppercase tracking-widest">
               Our Services
@@ -207,7 +207,7 @@ export default function Home() {
 
       {/* How We Work Snippet */}
       <section className="py-24 lg:py-32 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="section-container">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <AnimatedSection direction="left">
               <span className="text-teal-dark font-semibold text-sm uppercase tracking-widest">
@@ -271,7 +271,7 @@ export default function Home() {
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-gold/5 rounded-full blur-3xl" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="section-container relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <AnimatedSection>
               <span className="text-white/70 font-semibold text-sm uppercase tracking-widest">
@@ -351,7 +351,7 @@ export default function Home() {
 
       {/* Built on Experience Snippet */}
       <section className="py-24 lg:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="section-container">
           <AnimatedSection className="text-center max-w-3xl mx-auto">
             <span className="text-teal-dark font-semibold text-sm uppercase tracking-widest">
               About Us
@@ -386,7 +386,7 @@ export default function Home() {
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal/5 rounded-full blur-3xl" />
         </div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <div className="section-container max-w-4xl text-center relative z-10">
           <AnimatedSection>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
               Partner with Hatlisa Group for{" "}

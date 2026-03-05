@@ -22,7 +22,7 @@ export default function ContactContent() {
     <>
       {/* Hero */}
       <section className="hero-gradient pt-40 pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="section-container">
           <AnimatedSection className="max-w-3xl">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-sm font-medium mb-6">
               Get In Touch
@@ -40,7 +40,7 @@ export default function ContactContent() {
 
       {/* Contact Section */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="section-container">
           <div className="grid lg:grid-cols-5 gap-16">
             {/* Form */}
             <div className="lg:col-span-3">

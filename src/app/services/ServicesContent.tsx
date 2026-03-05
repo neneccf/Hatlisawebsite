@@ -77,7 +77,7 @@ export default function ServicesContent() {
     <>
       {/* Hero */}
       <section className="hero-gradient pt-40 pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="section-container">
           <AnimatedSection className="max-w-3xl">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-sm font-medium mb-6">
               Services
@@ -95,7 +95,7 @@ export default function ServicesContent() {
 
       {/* Services */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="section-container">
           <div className="space-y-20">
             {services.map((service, i) => (
               <AnimatedSection key={service.id} delay={0.1}>
@@ -152,7 +152,7 @@ export default function ServicesContent() {
 
       {/* Integration */}
       <section className="py-24 bg-navy text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="section-container max-w-4xl text-center">
           <AnimatedSection>
             <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-6">
               Integrated <span className="text-gold-light">Capability</span>

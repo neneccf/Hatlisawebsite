@@ -47,7 +47,7 @@ export default function Navbar() {
         scrolled ? "navbar-scrolled py-2" : "bg-transparent py-4"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div className="section-container flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group shrink-0">
           <Image
@@ -64,12 +64,12 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden lg:flex items-center gap-0.5">
+        <div className="hidden lg:flex items-center gap-1">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+              className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap ${
                 pathname === link.href
                   ? "text-white bg-white/10"
                   : "text-white/70 hover:text-white hover:bg-white/5"
@@ -80,7 +80,7 @@ export default function Navbar() {
           ))}
           <Link
             href="/contact"
-            className="ml-3 btn-gradient px-5 py-2 rounded-lg text-white text-sm font-semibold"
+            className="ml-4 btn-gradient px-5 py-2 rounded-lg text-white text-sm font-semibold whitespace-nowrap"
           >
             Get Started
           </Link>

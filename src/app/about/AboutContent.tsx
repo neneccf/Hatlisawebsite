@@ -64,7 +64,7 @@ export default function AboutContent() {
     <>
       {/* Hero */}
       <section className="hero-gradient pt-40 pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="section-container">
           <AnimatedSection className="max-w-3xl">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-sm font-medium mb-6">
               About Us
@@ -82,7 +82,7 @@ export default function AboutContent() {
 
       {/* Story */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="section-container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
               <h2 className="text-3xl sm:text-4xl font-heading font-bold text-navy mb-6">
@@ -124,7 +124,7 @@ export default function AboutContent() {
 
       {/* Mission & Vision */}
       <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="section-container">
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <AnimatedSection>
               <div className="bg-white rounded-2xl p-8 border border-gray-100 h-full">
@@ -167,7 +167,7 @@ export default function AboutContent() {
 
       {/* Values */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="section-container">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-heading font-bold text-navy mb-4">
               Our <span className="text-gold-light">Values</span>
@@ -197,7 +197,7 @@ export default function AboutContent() {
 
       {/* CTA */}
       <section className="py-24 bg-navy text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="section-container max-w-4xl text-center">
           <AnimatedSection>
             <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-6">
               Ready to{" "}
