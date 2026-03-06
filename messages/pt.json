@@ -243,13 +243,16 @@
     "message": "Mensagem",
     "messagePlaceholder": "Fale-nos sobre as suas necessidades...",
     "sendMessage": "Enviar Mensagem",
+    "sending": "A enviar...",
     "successTitle": "Mensagem Enviada",
     "successMessage": "Obrigado pelo seu contacto. Responderemos em breve.",
+    "errorMessage": "Algo correu mal. Tente novamente ou contacte-nos diretamente.",
     "infoTitle": "Informações de Contacto",
     "infoEmail": "Email",
     "infoPhone": "Telefone",
     "infoLocation": "Localização",
     "infoLocationValue": "Maputo, Moçambique",
+    "whatsappCta": "Converse connosco diretamente",
     "followUs": "Siga-nos"
   }
 }

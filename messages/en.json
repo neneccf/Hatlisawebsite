@@ -243,13 +243,16 @@
     "message": "Message",
     "messagePlaceholder": "Tell us about your needs...",
     "sendMessage": "Send Message",
+    "sending": "Sending...",
     "successTitle": "Message Sent",
     "successMessage": "Thank you for reaching out. We'll get back to you shortly.",
+    "errorMessage": "Something went wrong. Please try again or contact us directly.",
     "infoTitle": "Contact Information",
     "infoEmail": "Email",
     "infoPhone": "Phone",
     "infoLocation": "Location",
     "infoLocationValue": "Maputo, Mozambique",
+    "whatsappCta": "Chat with us directly",
     "followUs": "Follow Us"
   }
 }
