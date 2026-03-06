@@ -257,8 +257,8 @@ export default function ContactContent() {
                       </div>
                       <div>
                         <p className="text-white/50 text-sm mb-1">{t("infoEmail")}</p>
-                        <a href="mailto:info@hatlisagroup.co.mz" className="text-white hover:text-teal-light transition-colors">
-                          info@hatlisagroup.co.mz
+                        <a href="mailto:info@hatlisa.com" className="text-white hover:text-teal-light transition-colors">
+                          info@hatlisa.com
                         </a>
                       </div>
                     </div>

@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
     // Email to Hatlisa Group
     await transporter.sendMail({
       from: process.env.SMTP_FROM || `"Hatlisa Website" <noreply@hatlisa.com>`,
-      to: process.env.CONTACT_EMAIL || "info@hatlisagroup.co.mz",
+      to: process.env.CONTACT_EMAIL || "info@hatlisa.com",
       replyTo: email,
       subject: `New Contact Form: ${name} from ${company}`,
       html: `
@@ -87,7 +87,7 @@ export async function POST(request: NextRequest) {
             <p style="color: #333; line-height: 1.6;">Best regards,<br/><strong>Hatlisa Group</strong><br/>Maputo, Mozambique</p>
           </div>
           <div style="background: #0a192f; padding: 16px 24px; border-radius: 0 0 12px 12px;">
-            <p style="color: rgba(255,255,255,0.5); margin: 0; font-size: 12px;">info@hatlisagroup.co.mz | +258 87 410 8945</p>
+            <p style="color: rgba(255,255,255,0.5); margin: 0; font-size: 12px;">info@hatlisa.com | +258 87 410 8945</p>
           </div>
         </div>
       `,
