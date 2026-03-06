@@ -1,99 +1,48 @@
 "use client";
 
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import AnimatedSection from "@/components/AnimatedSection";
 import ServiceIcon from "@/components/ServiceIcon";
 
-const services = [
-  {
-    id: "technology",
-    icon: "technology" as const,
-    title: "Technology",
-    description:
-      "Development and deployment of operational platforms, automation tools, and digital systems built for real operating environments.",
-    details: [
-      "Operational platform development",
-      "Automation tools & workflows",
-      "Digital system deployment",
-      "Technology adapted for emerging market conditions",
-    ],
-  },
-  {
-    id: "finance",
-    icon: "finance" as const,
-    title: "Finance",
-    description:
-      "Financial structuring support, performance visibility systems, and operational cost optimization.",
-    details: [
-      "Financial structuring support",
-      "Performance visibility systems",
-      "Operational cost optimization",
-      "Data-driven financial reporting",
-    ],
-  },
-  {
-    id: "procurement",
-    icon: "procurement" as const,
-    title: "Procurement",
-    description:
-      "Supplier sourcing, contract structuring, cost control frameworks, and purchasing oversight.",
-    details: [
-      "Supplier sourcing & vetting",
-      "Contract structuring",
-      "Cost control frameworks",
-      "Purchasing oversight & compliance",
-    ],
-  },
-  {
-    id: "marketing",
-    icon: "marketing" as const,
-    title: "Marketing",
-    description:
-      "Field marketing, campaign execution, activation teams, and structured market research.",
-    details: [
-      "Field marketing deployment",
-      "Campaign execution & management",
-      "Activation team coordination",
-      "Structured market research",
-    ],
-  },
-  {
-    id: "logistics",
-    icon: "logistics" as const,
-    title: "Logistics",
-    description:
-      "Distribution design, last-mile coordination, and operational movement management.",
-    details: [
-      "Distribution network design",
-      "Last-mile delivery coordination",
-      "Operational movement management",
-      "Supply chain optimization",
-    ],
-  },
-];
+const serviceKeys = ["technology", "finance", "procurement", "marketing", "logistics"] as const;
 
 export default function ServicesContent() {
+  const t = useTranslations("Services");
+
+  const services = serviceKeys.map((key) => ({
+    id: key,
+    icon: key,
+    title: t(`${key}Title`),
+    description: t(`${key}Desc`),
+    details: [
+      t(`${key}Detail1`),
+      t(`${key}Detail2`),
+      t(`${key}Detail3`),
+      t(`${key}Detail4`),
+    ],
+  }));
+
   return (
     <>
-      {/* Hero */}
-      <section className="hero-gradient pt-40 pb-20">
+      <section className="hero-gradient pt-48 pb-24">
         <div className="section-container">
           <AnimatedSection className="max-w-3xl">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-sm font-medium mb-6">
-              Services
+              {t("badge")}
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-6">
-              Our Service <span className="text-gold-light">Domains</span>
+              {t.rich("heroTitle", {
+                highlight: (chunks) => <span className="text-gold-light">{chunks}</span>,
+              })}
             </h1>
             <p className="text-xl text-white/70 leading-relaxed">
-              Each service stands on its own. When required, they integrate
-              seamlessly.
+              {t("heroDescription")}
             </p>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Services */}
       <section className="py-24 bg-white">
         <div className="section-container">
           <div className="space-y-20">
@@ -118,18 +67,8 @@ export default function ServicesContent() {
                     <ul className="space-y-3">
                       {service.details.map((detail, j) => (
                         <li key={j} className="flex items-start gap-3 text-charcoal">
-                          <svg
-                            className="w-5 h-5 text-teal mt-0.5 shrink-0"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth={2}
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M5 13l4 4L19 7"
-                            />
+                          <svg className="w-5 h-5 text-teal mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                           </svg>
                           {detail}
                         </li>
@@ -150,23 +89,22 @@ export default function ServicesContent() {
         </div>
       </section>
 
-      {/* Integration */}
       <section className="py-24 bg-navy text-white">
         <div className="section-container max-w-4xl text-center">
           <AnimatedSection>
             <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-6">
-              Integrated <span className="text-gold-light">Capability</span>
+              {t.rich("integrationTitle", {
+                highlight: (chunks) => <span className="text-gold-light">{chunks}</span>,
+              })}
             </h2>
             <p className="text-white/70 text-lg leading-relaxed mb-8">
-              Because we operate across these functions, we understand how
-              decisions in one area affect the others. That perspective
-              strengthens even single-function engagements.
+              {t("integrationDescription")}
             </p>
             <Link
               href="/contact"
               className="btn-gradient px-8 py-4 rounded-xl text-white font-semibold text-lg inline-flex items-center gap-2"
             >
-              Discuss Your Needs
+              {t("discussYourNeeds")}
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>

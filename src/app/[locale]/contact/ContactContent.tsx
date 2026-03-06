@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import { useTranslations } from "next-intl";
 import AnimatedSection from "@/components/AnimatedSection";
 
 export default function ContactContent() {
+  const t = useTranslations("Contact");
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -21,18 +23,19 @@ export default function ContactContent() {
   return (
     <>
       {/* Hero */}
-      <section className="hero-gradient pt-40 pb-20">
+      <section className="hero-gradient pt-48 pb-24">
         <div className="section-container">
           <AnimatedSection className="max-w-3xl">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-sm font-medium mb-6">
-              Get In Touch
+              {t("badge")}
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-6">
-              Contact{" "}
-              <span className="text-gold-light">Hatlisa Group</span>
+              {t.rich("heroTitle", {
+                highlight: (chunks) => <span className="text-gold-light">{chunks}</span>,
+              })}
             </h1>
             <p className="text-xl text-white/70 leading-relaxed">
-              Ready to discuss your operational needs? We&apos;re here to help.
+              {t("heroSubtitle")}
             </p>
           </AnimatedSection>
         </div>
@@ -46,7 +49,7 @@ export default function ContactContent() {
             <div className="lg:col-span-3">
               <AnimatedSection>
                 <h2 className="text-2xl font-heading font-bold text-navy mb-6">
-                  Send Us a Message
+                  {t("formTitle")}
                 </h2>
 
                 {submitted ? (
@@ -57,11 +60,10 @@ export default function ContactContent() {
                       </svg>
                     </div>
                     <h3 className="text-xl font-heading font-bold text-navy mb-2">
-                      Message Sent
+                      {t("successTitle")}
                     </h3>
                     <p className="text-slate">
-                      Thank you for reaching out. We&apos;ll get back to you
-                      shortly.
+                      {t("successMessage")}
                     </p>
                   </div>
                 ) : (
@@ -72,7 +74,7 @@ export default function ContactContent() {
                           htmlFor="name"
                           className="block text-sm font-medium text-charcoal mb-2"
                         >
-                          Name <span className="text-red-500">*</span>
+                          {t("name")} <span className="text-red-500">*</span>
                         </label>
                         <input
                           type="text"
@@ -83,7 +85,7 @@ export default function ContactContent() {
                             setFormState({ ...formState, name: e.target.value })
                           }
                           className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all text-charcoal"
-                          placeholder="Your name"
+                          placeholder={t("namePlaceholder")}
                         />
                       </div>
                       <div>
@@ -91,7 +93,7 @@ export default function ContactContent() {
                           htmlFor="email"
                           className="block text-sm font-medium text-charcoal mb-2"
                         >
-                          Email <span className="text-red-500">*</span>
+                          {t("email")} <span className="text-red-500">*</span>
                         </label>
                         <input
                           type="email"
@@ -102,7 +104,7 @@ export default function ContactContent() {
                             setFormState({ ...formState, email: e.target.value })
                           }
                           className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all text-charcoal"
-                          placeholder="you@company.com"
+                          placeholder={t("emailPlaceholder")}
                         />
                       </div>
                     </div>
@@ -113,8 +115,8 @@ export default function ContactContent() {
                           htmlFor="phone"
                           className="block text-sm font-medium text-charcoal mb-2"
                         >
-                          Phone{" "}
-                          <span className="text-slate-light">(optional)</span>
+                          {t("phone")}{" "}
+                          <span className="text-slate-light">{t("phoneOptional")}</span>
                         </label>
                         <input
                           type="tel"
@@ -124,7 +126,7 @@ export default function ContactContent() {
                             setFormState({ ...formState, phone: e.target.value })
                           }
                           className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all text-charcoal"
-                          placeholder="+258 ..."
+                          placeholder={t("phonePlaceholder")}
                         />
                       </div>
                       <div>
@@ -132,7 +134,7 @@ export default function ContactContent() {
                           htmlFor="company"
                           className="block text-sm font-medium text-charcoal mb-2"
                         >
-                          Company <span className="text-red-500">*</span>
+                          {t("company")} <span className="text-red-500">*</span>
                         </label>
                         <input
                           type="text"
@@ -146,7 +148,7 @@ export default function ContactContent() {
                             })
                           }
                           className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all text-charcoal"
-                          placeholder="Your company"
+                          placeholder={t("companyPlaceholder")}
                         />
                       </div>
                     </div>
@@ -156,7 +158,7 @@ export default function ContactContent() {
                         htmlFor="message"
                         className="block text-sm font-medium text-charcoal mb-2"
                       >
-                        Message <span className="text-red-500">*</span>
+                        {t("message")} <span className="text-red-500">*</span>
                       </label>
                       <textarea
                         id="message"
@@ -170,7 +172,7 @@ export default function ContactContent() {
                           })
                         }
                         className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all resize-none text-charcoal"
-                        placeholder="Tell us about your needs..."
+                        placeholder={t("messagePlaceholder")}
                       />
                     </div>
 
@@ -178,7 +180,7 @@ export default function ContactContent() {
                       type="submit"
                       className="btn-gradient px-8 py-4 rounded-xl text-white font-semibold text-lg inline-flex items-center gap-2 w-full sm:w-auto justify-center"
                     >
-                      Send Message
+                      {t("sendMessage")}
                       <svg
                         className="w-5 h-5"
                         fill="none"
@@ -203,7 +205,7 @@ export default function ContactContent() {
               <AnimatedSection direction="right">
                 <div className="bg-navy rounded-2xl p-8 text-white sticky top-32">
                   <h3 className="text-xl font-heading font-bold mb-6">
-                    Contact Information
+                    {t("infoTitle")}
                   </h3>
 
                   <div className="space-y-6">
@@ -214,7 +216,7 @@ export default function ContactContent() {
                         </svg>
                       </div>
                       <div>
-                        <p className="text-white/50 text-sm mb-1">Email</p>
+                        <p className="text-white/50 text-sm mb-1">{t("infoEmail")}</p>
                         <a href="mailto:info@hatlisagroup.co.mz" className="text-white hover:text-teal-light transition-colors">
                           info@hatlisagroup.co.mz
                         </a>
@@ -228,7 +230,7 @@ export default function ContactContent() {
                         </svg>
                       </div>
                       <div>
-                        <p className="text-white/50 text-sm mb-1">Phone</p>
+                        <p className="text-white/50 text-sm mb-1">{t("infoPhone")}</p>
                         <a href="tel:+258874108945" className="text-white hover:text-teal-light transition-colors">
                           +258 87 410 8945
                         </a>
@@ -243,14 +245,14 @@ export default function ContactContent() {
                         </svg>
                       </div>
                       <div>
-                        <p className="text-white/50 text-sm mb-1">Location</p>
-                        <p className="text-white">Maputo, Mozambique</p>
+                        <p className="text-white/50 text-sm mb-1">{t("infoLocation")}</p>
+                        <p className="text-white">{t("infoLocationValue")}</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="mt-8 pt-6 border-t border-white/10">
-                    <p className="text-white/50 text-sm mb-4">Follow Us</p>
+                    <p className="text-white/50 text-sm mb-4">{t("followUs")}</p>
                     <div className="flex gap-3">
                       <a
                         href="https://www.linkedin.com"
