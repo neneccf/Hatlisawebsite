@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
         : undefined,
     });
 
-    // Email to Hatlisa Group
+    // Email to Hatlisa Group (primary - must succeed)
     await transporter.sendMail({
       from: process.env.SMTP_FROM || `"Hatlisa Website" <noreply@hatlisa.com>`,
       to: process.env.CONTACT_EMAIL || "info@hatlisa.com",
@@ -71,27 +71,31 @@ export async function POST(request: NextRequest) {
       `,
     });
 
-    // Auto-reply to sender
-    await transporter.sendMail({
-      from: process.env.SMTP_FROM || `"Hatlisa Group" <noreply@hatlisa.com>`,
-      to: email,
-      subject: "Thank you for contacting Hatlisa Group",
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <div style="background: #0a192f; padding: 24px; border-radius: 12px 12px 0 0;">
-            <h1 style="color: #c9a84c; margin: 0; font-size: 20px;">Hatlisa Group</h1>
+    // Auto-reply to sender (best-effort - don't fail the whole request if this fails)
+    try {
+      await transporter.sendMail({
+        from: process.env.SMTP_FROM || `"Hatlisa Group" <noreply@hatlisa.com>`,
+        to: email,
+        subject: "Thank you for contacting Hatlisa Group",
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <div style="background: #0a192f; padding: 24px; border-radius: 12px 12px 0 0;">
+              <h1 style="color: #c9a84c; margin: 0; font-size: 20px;">Hatlisa Group</h1>
+            </div>
+            <div style="background: #ffffff; padding: 24px; border: 1px solid #e9ecef;">
+              <p style="color: #333; line-height: 1.6;">Dear ${name},</p>
+              <p style="color: #333; line-height: 1.6;">Thank you for reaching out to Hatlisa Group. We have received your message and will get back to you shortly.</p>
+              <p style="color: #333; line-height: 1.6;">Best regards,<br/><strong>Hatlisa Group</strong><br/>Maputo, Mozambique</p>
+            </div>
+            <div style="background: #0a192f; padding: 16px 24px; border-radius: 0 0 12px 12px;">
+              <p style="color: rgba(255,255,255,0.5); margin: 0; font-size: 12px;">info@hatlisa.com | +258 87 410 8945</p>
+            </div>
           </div>
-          <div style="background: #ffffff; padding: 24px; border: 1px solid #e9ecef;">
-            <p style="color: #333; line-height: 1.6;">Dear ${name},</p>
-            <p style="color: #333; line-height: 1.6;">Thank you for reaching out to Hatlisa Group. We have received your message and will get back to you shortly.</p>
-            <p style="color: #333; line-height: 1.6;">Best regards,<br/><strong>Hatlisa Group</strong><br/>Maputo, Mozambique</p>
-          </div>
-          <div style="background: #0a192f; padding: 16px 24px; border-radius: 0 0 12px 12px;">
-            <p style="color: rgba(255,255,255,0.5); margin: 0; font-size: 12px;">info@hatlisa.com | +258 87 410 8945</p>
-          </div>
-        </div>
-      `,
-    });
+        `,
+      });
+    } catch (replyError) {
+      console.error("Auto-reply failed (non-critical):", replyError);
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
