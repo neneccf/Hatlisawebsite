@@ -17,8 +17,11 @@ export async function POST(request: NextRequest) {
     // Create transporter using environment variables
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || "localhost",
-      port: parseInt(process.env.SMTP_PORT || "587"),
+      port: parseInt(process.env.SMTP_PORT || "25"),
       secure: process.env.SMTP_SECURE === "true",
+      tls: {
+        rejectUnauthorized: false,
+      },
       auth: process.env.SMTP_USER
         ? {
             user: process.env.SMTP_USER,
