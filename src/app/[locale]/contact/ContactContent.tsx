@@ -1,8 +1,19 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, useEffect, FormEvent } from "react";
 import { useTranslations } from "next-intl";
 import AnimatedSection from "@/components/AnimatedSection";
+
+declare global {
+  interface Window {
+    grecaptcha: {
+      ready: (cb: () => void) => void;
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+    };
+  }
+}
+
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "";
 
 export default function ContactContent() {
   const t = useTranslations("Contact");
@@ -17,16 +28,35 @@ export default function ContactContent() {
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
 
+  useEffect(() => {
+    if (!RECAPTCHA_SITE_KEY) return;
+    const script = document.createElement("script");
+    script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+    script.async = true;
+    document.head.appendChild(script);
+    return () => { document.head.removeChild(script); };
+  }, []);
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setSending(true);
     setError("");
 
     try {
+      let recaptchaToken = "";
+      if (RECAPTCHA_SITE_KEY && window.grecaptcha) {
+        recaptchaToken = await new Promise<string>((resolve) => {
+          window.grecaptcha.ready(async () => {
+            const token = await window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: "contact" });
+            resolve(token);
+          });
+        });
+      }
+
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formState),
+        body: JSON.stringify({ ...formState, recaptchaToken }),
       });
 
       if (!res.ok) {
